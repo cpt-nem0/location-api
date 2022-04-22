@@ -16,7 +16,7 @@ def home() -> None:
 
 
 @app.post("/getAddressDetails")
-async def getAddressDetails(request: Address) -> Response:
+async def getAddressDetails(request: Address, api_key: str) -> Response:
     """
     returns the address details
     """
@@ -24,7 +24,7 @@ async def getAddressDetails(request: Address) -> Response:
     output_format = request.output_format
 
     try:
-        response = get_address_details(address, output_format)
+        response = get_address_details(api_key, address, output_format)
     except Exception as e:
         print('ERROR: {}'.format(e))
         raise HTTPException(

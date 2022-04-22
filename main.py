@@ -1,10 +1,12 @@
 """ main module to run the application """
 import sys
 
+import uvicorn
+
 from api import app
 
 HOST = "0.0.0.0"
-PORT = 5555
+PORT = 5000
 DEBUG = False
 
 
@@ -16,4 +18,4 @@ if __name__ == "__main__":
     if '--debug' in sys.argv:
         DEBUG = True
     
-    app.run(host=HOST, port=PORT, debug=DEBUG)
+    uvicorn.run(app, host=HOST, port=PORT, debug=DEBUG)
