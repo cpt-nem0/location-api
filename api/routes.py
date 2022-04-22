@@ -1,7 +1,6 @@
 """ Contains the routes for the API """
 
-from fastapi import HTTPException, Request, Response
-from fastapi.responses import JSONResponse
+from fastapi import HTTPException, Response
 
 from api import app
 from api.modals import Address
@@ -18,9 +17,12 @@ def home() -> None:
 
 @app.post("/getAddressDetails")
 async def getAddressDetails(request: Address) -> Response:
+    """
+    returns the address details
+    """
     address = request.address
     output_format = request.output_format
-    
+
     try:
         response = get_address_details(address, output_format)
     except Exception as e:
