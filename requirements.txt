@@ -1,0 +1,4 @@
+fastapi==0.75.2
+googlemaps==4.6.0
+python-simplexml==0.1.5
+uvicorn==0.17.6
